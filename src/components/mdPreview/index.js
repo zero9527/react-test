@@ -10,6 +10,7 @@ import styles from './md-preview.less';
 
 const marked = require('marked');
 
+// 使用marked.js+highlight.js的编辑器
 export default class MdPreview extends Component {
   constructor(props) {
     super(props);

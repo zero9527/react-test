@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import MdPreview from '../../components/mdPreview';
 import MdToolBar from '../../components/mdToolbar';
-import styles from './test.less';
+import styles from './mdEditor.less';
 
-class Test extends Component {
+export default class mdEditor extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,5 +57,3 @@ class Test extends Component {
     );
   }
 }
-
-export default Test;

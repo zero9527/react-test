@@ -21,9 +21,15 @@ export default class NoteDetail extends Component {
 
   render() {
     return (
-      <div className={styles.test}>
+      <div className={styles['note-detail']}>
         <h3>详情</h3>
         {this.state.mdtext && <MdPreview isDetail mdtext={this.state.mdtext} />}
+        <button
+          className={styles.edit}
+          onClick={() => this.props.history.push('/mdEditor')}
+        >
+          编辑
+        </button>
       </div>
     );
   }

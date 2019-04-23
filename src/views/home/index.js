@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../logo.svg';
+import styles from './home.less';
 
 class Home extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="Home">
+      <div className={styles['Home']}>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -24,13 +25,13 @@ class Home extends Component {
           >
             Learn React
           </a>
-          <Link to="/test">
-            <div>test</div>
-          </Link>
-          <Link to="/t1">
+          <Link to="/t1" className="App-link">
             <div>t1</div>
           </Link>
-          <Link to="/noteDetail">
+          <Link to="/mdEditor" className="App-link">
+            <div>mdEditor</div>
+          </Link>
+          <Link to="/noteDetail" className="App-link">
             <div>noteDetail</div>
           </Link>
         </header>
