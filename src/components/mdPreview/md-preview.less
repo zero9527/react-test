@@ -1,6 +1,9 @@
 .md-container {
   .md-content {
     padding: 10px;
+    // color: #eee;
+    // background: #333;
+    background: #fefefe;
     box-sizing: border-box;
     &::before {
       content: attr(text);
@@ -38,7 +41,7 @@
     }
   }
   .handle-btn {
-    position: fixed;
+    position: absolute;
     bottom: 60px;
     right: 10px;
     margin: 4px 0;
@@ -56,7 +59,7 @@
 // 预览的样式
 .md-preview {
   .md-content {
-    position: fixed;
+    position: absolute;
     width: 60%;
     max-width: 430px;
     height: 60%;
@@ -64,9 +67,6 @@
     bottom: 100px;
     right: 10px;
     border-radius: 4px;
-    // color: #eee;
-    // background: #333;
-    background: #f1f1f1;
     box-shadow: -1px 1px 4px rgba(150, 150, 150, 0.6);
     overflow: auto;
     font-size: 70%;

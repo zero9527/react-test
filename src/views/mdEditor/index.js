@@ -3,6 +3,7 @@ import MdPreview from '../../components/mdPreview';
 import MdToolBar from '../../components/mdToolbar';
 import styles from './mdEditor.less';
 
+// 编辑器
 export default class mdEditor extends Component {
   constructor(props) {
     super(props);
@@ -38,11 +39,21 @@ export default class mdEditor extends Component {
     this.setState({
       mdtext: data
     });
+    setTimeout(() => {
+      // 延迟 使得输入框滚动条在最下面
+      // 输入框获得焦点
+      document.querySelector(`.${styles.textarea}`).focus();
+    }, 100);
+  };
+
+  // 撤销功能（只一步）
+  unDo = () => {
+    console.log('撤销成功！');
   };
 
   render() {
     return (
-      <div className={styles.test}>
+      <div className={styles.editor}>
         <h3>使用marked.js+highlight.js的编辑器</h3>
         <textarea
           rows="20"
@@ -51,6 +62,9 @@ export default class mdEditor extends Component {
           value={this.state.mdtext || ''}
           onChange={this.textareaChange}
         />
+        <button className={styles.undo} onClick={this.unDo}>
+          撤销
+        </button>
         {this.state.mdtext && <MdPreview isEdit mdtext={this.state.mdtext} />}
         <MdToolBar onToolbarClick={this.onToolbarClick} />
       </div>

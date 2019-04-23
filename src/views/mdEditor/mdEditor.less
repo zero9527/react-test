@@ -1,4 +1,10 @@
-.test {
+.editor {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   color: inherit;
   .textarea {
     width: 100%;
@@ -10,5 +16,10 @@
     &:focus {
       outline: 1px solid #2196f3;
     }
+  }
+  .undo {
+    position: absolute;
+    right: 10px;
+    bottom: 30px;
   }
 }
