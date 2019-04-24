@@ -22,7 +22,7 @@ export default class NoteDetail extends Component {
   render() {
     return (
       <div className={styles['note-detail']}>
-        <h3>详情</h3>
+        <h3 className={styles.title}>详情</h3>
         {this.state.mdtext && <MdPreview isDetail mdtext={this.state.mdtext} />}
         <button
           className={styles.edit}

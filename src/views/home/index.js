@@ -25,9 +25,6 @@ class Home extends Component {
           >
             Learn React
           </a>
-          <Link to="/t1" className="App-link">
-            <div>t1</div>
-          </Link>
           <Link to="/mdEditor" className="App-link">
             <div>mdEditor</div>
           </Link>

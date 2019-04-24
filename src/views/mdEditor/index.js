@@ -50,18 +50,30 @@ export default class mdEditor extends Component {
     this.setState({
       mdtext
     });
-    let pos;
-    if (toolItem.key === 'precode' || toolItem.key === 'code') {
-      pos = this.state.cursorPos + toolItem.value.length / 2;
-    } else {
-      pos = this.state.cursorPos + toolItem.value.length;
-    }
+    let cursorPosStart, cursorPosEnd; // 光标起始、结束位置
     let textarea = document.querySelector(`.${styles.textarea}`);
+    if (toolItem.key === 'precode' || toolItem.key === 'code') {
+      // 代码
+      cursorPosStart = cursorPosEnd =
+        this.state.cursorPos + toolItem.value.length / 2;
+    } else if (toolItem.key === 'link') {
+      // 链接
+      cursorPosStart = this.state.cursorPos + 7;
+      cursorPosEnd = this.state.cursorPos + toolItem.value.length - 1;
+    } else if (toolItem.key === 'pic') {
+      // 图片
+      cursorPosStart = this.state.cursorPos + 15;
+      cursorPosEnd = this.state.cursorPos + toolItem.value.length - 1;
+    } else {
+      // 其他
+      cursorPosStart = cursorPosEnd =
+        this.state.cursorPos + toolItem.value.length;
+    }
     // 输入框获得焦点
     textarea.focus();
     setTimeout(() => {
-      // 延迟 使得光标在当前 插入快捷方式之后 相应的位置
-      textarea.setSelectionRange(pos, pos);
+      // 延迟 使得光标在当前 插入快捷方式之后 相应的位置或选中相应的文本
+      textarea.setSelectionRange(cursorPosStart, cursorPosEnd);
     }, 0);
   };
 
@@ -78,7 +90,7 @@ export default class mdEditor extends Component {
   render() {
     return (
       <div className={styles.editor}>
-        <h3>&nbsp;使用marked.js+highlight.js的编辑器</h3>
+        <h3 className={styles.title}>使用marked.js+highlight.js的编辑器</h3>
         <textarea
           rows="20"
           className={styles.textarea}
