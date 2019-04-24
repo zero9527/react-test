@@ -1,6 +1,7 @@
 .editor {
+  height: 100%;
   width: 100%;
-  max-width: 900px;
+  max-width: 1024px;
   position: relative;
   left: 0;
   right: 0;
@@ -8,7 +9,7 @@
   color: inherit;
   .textarea {
     width: 100%;
-    min-height: 80vh;
+    height: calc(100% - 130px);
     padding: 6px;
     border: none;
     outline: none;
@@ -16,6 +17,11 @@
     &:focus {
       outline: 1px solid #2196f3;
     }
+  }
+  .cancel-edit {
+    position: absolute;
+    right: 10px;
+    top: 30px;
   }
   .undo {
     position: absolute;
