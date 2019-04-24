@@ -8,56 +8,64 @@ export default class MdToolBar extends Component {
     this.state = {};
   }
 
-  toolHandler = value => {
-    console.log('value: ', value);
-    this.props.onToolbarClick(value);
+  // 点击事件
+  toolHandler = item => {
+    this.props.onToolbarClick(item);
   };
 
   render() {
-    const toolbar = {
-      pic: {
+    const toolbar = [
+      {
+        key: 'pic',
         value: '![图片加载失败显示的名称](图片地址)',
         label: '图片'
       },
-      link: {
+      {
+        key: 'link',
         value: '[链接名称](链接地址)',
         label: '链接'
       },
-      title1: {
+      {
+        key: 'title1',
         value: '\n# ',
         label: '一级标题'
       },
-      title2: {
+      {
+        key: 'title2',
         value: '\n## ',
         label: '二级标题'
       },
-      ul: {
+      {
+        key: 'ul',
         value: '\n* ',
         label: '无序列表'
       },
-      ol: {
+      {
+        key: 'ol',
         value: '\n1. ',
         label: '有序列表'
       },
-      precode: {
-        value: '\n``` \n```',
+      {
+        key: 'precode',
+        value: '\n```\n\n```\n',
         label: '代码块'
       },
-      code: {
+      {
+        key: 'code',
         value: '``',
         label: '代码段'
       }
-    };
+    ];
 
     return (
       <div className={styles['md-toolbar']}>
-        {Object.keys(toolbar).map(key => (
+        {toolbar.map(item => (
           <div
-            key={key}
+            key={item.key}
             className={styles['tool-item']}
-            onClick={() => this.toolHandler(toolbar[key].value)}
+            onClick={() => this.toolHandler(item)}
           >
-            {toolbar[key].label}
+            {item.label}
           </div>
         ))}
       </div>
