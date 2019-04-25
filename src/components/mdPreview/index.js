@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 import less from 'highlight.js/lib/languages/less';
-import htmlbars from 'highlight.js/lib/languages/htmlbars';
+import xml from 'highlight.js/lib/languages/xml';
 // import 'highlight.js/styles/googlecode.css';
 // import 'highlight.js/styles/darcula.css';
 // import 'highlight.js/styles/github.css';
@@ -28,7 +28,7 @@ export default class MdPreview extends Component {
   markedInit = () => {
     hljs.registerLanguage('javascript', javascript);
     hljs.registerLanguage('less', less);
-    hljs.registerLanguage('htmlbars', htmlbars);
+    hljs.registerLanguage('xml', xml);
     // Set options
     // `highlight` example uses `highlight.js`
     marked.setOptions({
