@@ -15,10 +15,11 @@ export default class mdEditor extends Component {
   }
 
   componentDidMount = () => {
-    const localtext = sessionStorage.getItem('mdtext');
+    const localtext = localStorage.getItem('mdtext');
     if (localtext) {
       this.setState({
-        mdtext: JSON.parse(localtext)
+        mdtext: JSON.parse(localtext),
+        mdtextRaw: JSON.parse(localtext)
       });
     }
   };
@@ -36,7 +37,7 @@ export default class mdEditor extends Component {
     this.setState({
       mdtext: text
     });
-    sessionStorage.setItem('mdtext', JSON.stringify(text));
+    localStorage.setItem('mdtext', JSON.stringify(text));
   };
 
   // 点击快捷栏 某一功能
@@ -82,14 +83,13 @@ export default class mdEditor extends Component {
     const confirm = window.confirm('确定取消吗？点击确定将不会保存！');
     if (!confirm) return;
     this.setState({
-      mdtext: this.state.mdtextRaw,
-      lastQuickAction: null // 清楚记录
+      mdtext: this.state.mdtextRaw
     });
   };
 
   render() {
     return (
-      <div className={styles.editor}>
+      <div className={`center-content ${styles.editor}`}>
         <h3 className={styles.title}>使用marked.js+highlight.js的编辑器</h3>
         <textarea
           rows="20"

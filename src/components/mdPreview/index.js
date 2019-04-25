@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
+import less from 'highlight.js/lib/languages/less';
+import htmlbars from 'highlight.js/lib/languages/htmlbars';
 // import 'highlight.js/styles/googlecode.css';
 // import 'highlight.js/styles/darcula.css';
 // import 'highlight.js/styles/github.css';
-import 'highlight.js/styles/atom-one-light.css';
+import 'highlight.js/styles/atom-one-dark.css';
 import styles from './md-preview.less';
 
 const marked = require('marked');
@@ -25,6 +27,8 @@ export default class MdPreview extends Component {
   // marked初始化
   markedInit = () => {
     hljs.registerLanguage('javascript', javascript);
+    hljs.registerLanguage('less', less);
+    hljs.registerLanguage('htmlbars', htmlbars);
     // Set options
     // `highlight` example uses `highlight.js`
     marked.setOptions({

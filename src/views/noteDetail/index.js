@@ -11,7 +11,7 @@ export default class NoteDetail extends Component {
   }
 
   componentDidMount = () => {
-    const localtext = sessionStorage.getItem('mdtext');
+    const localtext = localStorage.getItem('mdtext');
     if (localtext) {
       this.setState({
         mdtext: JSON.parse(localtext)
@@ -21,7 +21,7 @@ export default class NoteDetail extends Component {
 
   render() {
     return (
-      <div className={styles['note-detail']}>
+      <div className={`center-content ${styles['note-detail']}`}>
         <h3 className={styles.title}>详情</h3>
         {this.state.mdtext && <MdPreview isDetail mdtext={this.state.mdtext} />}
         <button

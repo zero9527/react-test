@@ -26,14 +26,19 @@ export default class MdToolBar extends Component {
         label: '链接'
       },
       {
-        key: 'title1',
-        value: '\n# ',
-        label: '一级标题'
+        key: 'H2',
+        value: '\n## ',
+        label: 'H2'
       },
       {
-        key: 'title2',
-        value: '\n## ',
-        label: '二级标题'
+        key: 'H3',
+        value: '\n### ',
+        label: 'H3'
+      },
+      {
+        key: 'H4',
+        value: '\n#### ',
+        label: 'H4'
       },
       {
         key: 'ul',
@@ -54,11 +59,16 @@ export default class MdToolBar extends Component {
         key: 'code',
         value: '``',
         label: '代码段'
+      },
+      {
+        key: 'quote',
+        value: '\n> ',
+        label: '引用'
       }
     ];
 
     return (
-      <div className={styles['md-toolbar']}>
+      <div className={`center-content ${styles['md-toolbar']}`}>
         {toolbar.map(item => (
           <div
             key={item.key}
