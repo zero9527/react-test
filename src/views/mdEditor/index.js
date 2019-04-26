@@ -53,7 +53,11 @@ export default class mdEditor extends Component {
     });
     let cursorPosStart, cursorPosEnd; // 光标起始、结束位置
     let textarea = document.querySelector(`.${styles.textarea}`);
-    if (toolItem.key === 'precode' || toolItem.key === 'code') {
+    if (
+      toolItem.key === 'precode' ||
+      toolItem.key === 'code' ||
+      toolItem.key === 'bold'
+    ) {
       // 代码
       cursorPosStart = cursorPosEnd =
         this.state.cursorPos + toolItem.value.length / 2;

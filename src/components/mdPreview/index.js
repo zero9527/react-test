@@ -36,6 +36,7 @@ export default class MdPreview extends Component {
       highlight: function(code) {
         return hljs.highlightAuto(code).value;
       },
+      langPrefix: '',
       pedantic: false,
       gfm: true,
       tables: true,
