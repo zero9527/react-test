@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MdPreview from '../../components/mdPreview';
+import Export from '../../components/export';
 import styles from './note-detail.less';
 
 export default class NoteDetail extends Component {
@@ -30,6 +31,7 @@ export default class NoteDetail extends Component {
         >
           编辑
         </button>
+        {this.state.mdtext && <Export />}
       </div>
     );
   }

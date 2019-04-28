@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import HooksTest from '../../components/hooksTest';
+// import HooksTest from '../../components/hooksTest';
 import logo from '../../logo.svg';
 import styles from './home.less';
 
@@ -32,7 +32,7 @@ class Home extends Component {
           <Link to="/noteDetail" className="App-link">
             <div>noteDetail</div>
           </Link>
-          <HooksTest />
+          {/* <HooksTest /> */}
         </header>
       </div>
     );
