@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 import styles from './export.less';
 
-// 导出md文件、生成图片
+// 导出md文件、生成图片(html2canvas)
 export default function Export() {
   const [offsetW, setOffsetW] = useState(0);
   const [offsetH, setOffsetH] = useState(0);
