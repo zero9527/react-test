@@ -37,6 +37,8 @@ export default function Export() {
     setExportName(
       preview.textContent.substring(0, preview.textContent.indexOf('\n'))
     );
+    console.log('preview.textContent: ', preview.textContent);
+    console.log('exportName: ', exportName);
 
     // 导出图片
     if (type === 'png') {
