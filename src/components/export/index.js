@@ -53,7 +53,9 @@ export default function Export() {
     else if (type === 'md') {
       let URL = window.URL || window.webkitURL || window.mozURL;
       let md = localStorage.getItem('mdtext');
-      let tempmd = new Blob([JSON.parse(md)]);
+      let tempmd = new Blob([JSON.parse(md)], {
+        type: 'application/markdown'
+      });
       setMdUrl(URL.createObjectURL(tempmd));
     }
   };
