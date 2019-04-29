@@ -41,7 +41,8 @@ export default function Export() {
       html2canvas(preview, {
         scale: 1, // window.devicePixelRatio
         // 截取的window宽度，使得横向滚动条不出现，避免截取丢失滚动条之外的内容
-        windowWidth: maxCodeWidth + 80
+        windowWidth: maxCodeWidth + 80,
+        useCORS: true // 图片跨域
       }).then(function(canvas) {
         let temppng = canvas.toDataURL('image/png');
         setPngUrl(temppng);
