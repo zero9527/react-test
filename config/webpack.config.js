@@ -211,7 +211,8 @@ module.exports = function(webpackEnv) {
           parallel: true,
           // Enable file caching
           cache: true,
-          sourceMap: shouldUseSourceMap
+          // sourceMap: shouldUseSourceMap
+          sourceMap: true
         }),
         // This is only used in production mode
         new OptimizeCSSAssetsPlugin({
