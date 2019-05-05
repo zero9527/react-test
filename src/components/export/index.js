@@ -66,7 +66,7 @@ export default function Export() {
         width={offsetW}
         height={offsetH}
       />
-      {mdUrl && (
+      {mdUrl && exportName && (
         <a
           className={styles['export-btn']}
           href={mdUrl}
@@ -75,7 +75,7 @@ export default function Export() {
           <button>导出md文件</button>
         </a>
       )}
-      {pngUrl && (
+      {pngUrl && exportName && (
         <a
           className={styles['export-btn']}
           href={pngUrl}
