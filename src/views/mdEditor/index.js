@@ -22,7 +22,7 @@ export default class mdEditor extends Component {
         mdtextRaw: JSON.parse(localtext)
       });
     } else {
-      fetch('./static/_promise.md')
+      fetch('./_promise.md')
         .then(res => res.text())
         .then(res => {
           this.setState({

@@ -22,6 +22,7 @@ export default class NoteDetail extends Component {
       fetch('./_promise.md')
         .then(res => res.text())
         .then(res => {
+          debugger;
           localStorage.setItem('mdtext', JSON.stringify(res));
           this.setState({
             mdtext: res
