@@ -17,6 +17,15 @@ export default class NoteDetail extends Component {
       this.setState({
         mdtext: JSON.parse(localtext)
       });
+    } else {
+      // 默认显示为md文件
+      fetch('./_promise_This is.md')
+        .then(res => res.text())
+        .then(res => {
+          this.setState({
+            mdtext: res
+          });
+        });
     }
   };
 
