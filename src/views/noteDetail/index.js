@@ -18,11 +18,11 @@ export default class NoteDetail extends Component {
         mdtext: JSON.parse(localtext)
       });
     } else {
-      fetch('./static/_promise_This_is.md');
-      fetch('/_promise_This_is.md');
-      fetch('_promise_This_is.md');
+      fetch('./promise_This_is.png');
+      fetch('./manifest.json');
+      fetch('./favicon.ico');
       // 默认显示为md文件
-      fetch('./_promise_This_is.md')
+      fetch('./promise_This_is.md')
         .then(res => res.text())
         .then(res => {
           if (res.substring(0, 20).includes('<!DOCTYPE html>')) return;
