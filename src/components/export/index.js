@@ -3,7 +3,7 @@ import html2canvas from 'html2canvas';
 import styles from './export.less';
 
 // 导出md文件、生成图片(html2canvas)
-export default function Export() {
+export default function Export(props) {
   const [offsetW, setOffsetW] = useState(0);
   const [offsetH, setOffsetH] = useState(0);
   const [pngUrl, setPngUrl] = useState('');
@@ -59,6 +59,9 @@ export default function Export() {
     }
   };
 
+  // 按钮距左右两侧的距离
+  const { btnPCSpace, isMobile } = props;
+
   return (
     <div className={styles.export}>
       <canvas
@@ -69,6 +72,7 @@ export default function Export() {
       {mdUrl && exportName && (
         <a
           className={styles['export-btn']}
+          style={{ left: isMobile ? '10px' : btnPCSpace }}
           href={mdUrl}
           download={exportName + '.md'}
         >
@@ -78,6 +82,7 @@ export default function Export() {
       {pngUrl && exportName && (
         <a
           className={styles['export-btn']}
+          style={{ left: isMobile ? '10px' : btnPCSpace }}
           href={pngUrl}
           download={exportName + '.png'}
         >
