@@ -19,7 +19,7 @@ export default class NoteDetail extends Component {
       });
     } else {
       // 默认显示为md文件
-      fetch('./_promise_This_is.md')
+      fetch('./static/_promise_This_is.md')
         .then(res => res.text())
         .then(res => {
           if (res.substring(0, 20).includes('<!DOCTYPE html>')) return;
