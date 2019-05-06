@@ -22,7 +22,7 @@ export default class NoteDetail extends Component {
       fetch('./_promise_This_is.md')
         .then(res => res.text())
         .then(res => {
-          if (res.substr(0, 20).includes('<!DOCTYPE html>')) return;
+          if (res.substring(0, 20).includes('<!DOCTYPE html>')) return;
           localStorage.setItem('mdtext', JSON.stringify(res));
           this.setState({
             mdtext: res
