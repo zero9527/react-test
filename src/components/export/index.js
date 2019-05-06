@@ -34,7 +34,7 @@ export default function Export() {
   const exportfn = type => {
     // type: 'md'/'png'
     // 设置文件名称
-    setExportName(preview.textContent.substr(0, 16));
+    setExportName(preview.textContent.substr(0, 16).replace(' ', '_'));
 
     // 导出图片
     if (type === 'png') {

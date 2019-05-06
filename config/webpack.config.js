@@ -486,6 +486,8 @@ module.exports = function(webpackEnv) {
       ]
     },
     plugins: [
+      // 添加 uglify或minise
+      // 添加js压缩，去debugger, console
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(

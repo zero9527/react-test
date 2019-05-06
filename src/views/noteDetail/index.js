@@ -19,12 +19,10 @@ export default class NoteDetail extends Component {
       });
     } else {
       // 默认显示为md文件
-      fetch('./_promise.md')
+      fetch('./_promise_This_is.md')
+        .then(res => res.text())
         .then(res => {
-          debugger;
-          return res.text();
-        })
-        .then(res => {
+          if (res.substr(0, 20).includes('<!DOCTYPE html>')) return;
           localStorage.setItem('mdtext', JSON.stringify(res));
           this.setState({
             mdtext: res

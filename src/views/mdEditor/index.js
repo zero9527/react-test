@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import MdPreview from '../../components/mdPreview';
 import MdToolBar from '../../components/mdToolbar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFeatherAlt } from '@fortawesome/free-solid-svg-icons';
 import styles from './mdEditor.less';
 
 // 编辑器
@@ -10,7 +12,8 @@ export default class mdEditor extends Component {
     this.state = {
       mdtextRaw: '', // 原始的编辑数据
       mdtext: '', // 当前编辑数据
-      cursorPos: null // 光标位置
+      cursorPos: null, // 光标位置
+      cursorHandTop: null //输入光标距顶部的距离
     };
   }
 
@@ -22,7 +25,7 @@ export default class mdEditor extends Component {
         mdtextRaw: JSON.parse(localtext)
       });
     } else {
-      fetch('./_promise.md')
+      fetch('./_promise_This_is.md')
         .then(res => res.text())
         .then(res => {
           this.setState({
@@ -30,6 +33,13 @@ export default class mdEditor extends Component {
           });
         });
     }
+  };
+
+  // 输入框获得焦点
+  textareaClick = e => {
+    this.setState({
+      cursorHandTop: e.clientY - 6
+    });
   };
 
   // 输入框失去焦点
@@ -101,6 +111,7 @@ export default class mdEditor extends Component {
   };
 
   render() {
+    const { cursorHandTop } = this.state;
     return (
       <div className={`center-content ${styles.editor}`}>
         <h3 className={styles.title}>使用marked.js+highlight.js的编辑器</h3>
@@ -109,9 +120,17 @@ export default class mdEditor extends Component {
           className={styles.textarea}
           placeholder="输入内容，支持markdown语法"
           value={this.state.mdtext || ''}
+          onClick={e => this.textareaClick(e)}
           onChange={this.textareaChange}
           onBlur={this.textareaBlur}
         />
+        {cursorHandTop !== null && (
+          <FontAwesomeIcon
+            icon={faFeatherAlt}
+            className={styles.cursor}
+            style={{ top: cursorHandTop }}
+          />
+        )}
         {this.state.mdtext !== this.state.mdtextRaw && (
           <button className={styles['cancel-edit']} onClick={this.cancelEdit}>
             退出编辑
