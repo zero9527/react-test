@@ -82,11 +82,11 @@ export default class mdEditor extends Component {
       cursorPosStart = cursorPosEnd =
         this.state.cursorPos + toolItem.value.length;
     }
-    // 输入框获得焦点
-    textarea.focus();
     setTimeout(() => {
       // 延迟 使得光标在当前 插入快捷方式之后 相应的位置或选中相应的文本
       textarea.setSelectionRange(cursorPosStart, cursorPosEnd);
+      // 输入框获得焦点
+      textarea.focus();
     }, 0);
   };
 
@@ -94,6 +94,7 @@ export default class mdEditor extends Component {
   cancelEdit = () => {
     const confirm = window.confirm('确定取消吗？点击确定将不会保存！');
     if (!confirm) return;
+    localStorage.setItem('mdtext', JSON.stringify(this.state.mdtextRaw));
     this.setState({
       mdtext: this.state.mdtextRaw
     });

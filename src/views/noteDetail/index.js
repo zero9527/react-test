@@ -20,9 +20,11 @@ export default class NoteDetail extends Component {
     } else {
       // 默认显示为md文件
       fetch('./_promise.md')
-        .then(res => res.text())
         .then(res => {
           debugger;
+          return res.text();
+        })
+        .then(res => {
           localStorage.setItem('mdtext', JSON.stringify(res));
           this.setState({
             mdtext: res
