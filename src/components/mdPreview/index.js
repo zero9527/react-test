@@ -68,6 +68,7 @@ export default class MdPreview extends Component {
           <section
             text="注意：实际显示效果可能会有出入！"
             className={styles['md-content']}
+            id="md-content"
             dangerouslySetInnerHTML={{
               __html: marked(this.props.mdtext)
             }}

@@ -13,7 +13,7 @@ export default function Export(props) {
 
   useEffect(() => {
     // 显示的内容
-    preview = document.querySelector('[class^=md-content]');
+    preview = document.querySelector('#md-content');
     // 获取 code 部分的最大宽度，防止导出图片时，横向滚动条的部分截断
     let codeContent = preview.querySelectorAll('pre>code');
     let codeWidth = Array.from(codeContent).map(codeTag => codeTag.offsetWidth);
@@ -21,8 +21,8 @@ export default function Export(props) {
     setOffsetW(maxCodeWidth);
     setOffsetH(preview.offsetHeight);
 
-    exportfn('png');
     exportfn('md');
+    setTimeout(() => exportfn('png'), 0);
 
     // 回调的函数会在 unmount 时执行
     return () => console.log('Export unmount');
@@ -71,7 +71,7 @@ export default function Export(props) {
       />
       {pngUrl && exportName && (
         <a
-          className={styles['export-btn']}
+          className={`${styles['export-png']} ${styles['export-btn']}`}
           style={{ left: isMobile ? '10px' : btnPCSpace }}
           href={pngUrl}
           download={exportName + '.png'}
