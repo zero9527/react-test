@@ -69,16 +69,6 @@ export default function Export(props) {
         width={offsetW}
         height={offsetH}
       />
-      {mdUrl && exportName && (
-        <a
-          className={styles['export-btn']}
-          style={{ left: isMobile ? '10px' : btnPCSpace }}
-          href={mdUrl}
-          download={exportName + '.md'}
-        >
-          <button>导出md文件</button>
-        </a>
-      )}
       {pngUrl && exportName && (
         <a
           className={styles['export-btn']}
@@ -87,6 +77,16 @@ export default function Export(props) {
           download={exportName + '.png'}
         >
           <button>导出图片</button>
+        </a>
+      )}
+      {mdUrl && exportName && (
+        <a
+          className={styles['export-btn']}
+          style={{ left: isMobile ? '10px' : btnPCSpace }}
+          href={mdUrl}
+          download={exportName + '.md'}
+        >
+          <button>导出md文件</button>
         </a>
       )}
     </div>
