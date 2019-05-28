@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 // import HooksTest from '../../components/hooksTest';
+import ReduxTest1 from '../../components/redux-test/redux-1.jsx';
+import ReduxTest2 from '../../components/redux-test/redux-2.jsx';
 import logo from '../../logo.svg';
 import styles from './home.less';
 
@@ -33,6 +35,8 @@ class Home extends Component {
             <div>noteDetail</div>
           </Link>
           {/* <HooksTest /> */}
+          <ReduxTest1 />
+          <ReduxTest2 />
         </header>
       </div>
     );

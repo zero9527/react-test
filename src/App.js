@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
 import router from './router';
 import Loading from '@/views/loading';
+import './App.css';
 
 class App extends Component {
   render() {
