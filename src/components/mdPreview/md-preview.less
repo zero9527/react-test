@@ -15,21 +15,27 @@
       font-size: 12px;
     }
     pre {
+      position: relative;
       padding: 14px 6px;
       border-radius: 2px;
       // background: #f1f1f1;
       color: #abb2bf;
       background: #282c34;
-      overflow: auto;
+      overflow-x: auto;
       code {
         &::before { // 语言
           content: attr(class);
+          width: 100%;
           display: block;
           position: absolute;
-          right: 22px;
-          margin-top: -12px;
-          text-align: right;
+          left: 0;
+          margin-top: -14px;
+          padding: 0 8px;
+          text-align: left;
+          border-radius: 6px;
           color: #666;
+          background: #292929;
+          box-sizing: border-box;
         }
       }
     }

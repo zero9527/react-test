@@ -36,7 +36,7 @@ class Home extends Component {
           </Link>
           {/* <HooksTest /> */}
           <ReduxTest1 />
-          <ReduxTest2 />
+          <ReduxTest2 from="home" />
         </header>
       </div>
     );

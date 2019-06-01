@@ -7,14 +7,23 @@ class ReduxTest2 extends React.Component {
   }
 
   render() {
-    return <div>{this.props.count}</div>;
+    return (
+      <React.Fragment>
+        <div>todo: {this.props.todoList}</div>
+        <div>countReducer: {this.props.count}</div>
+        <div>numReducer: {this.props.count1}</div>
+      </React.Fragment>
+    );
   }
 }
 
-function mapState2Props(state) {
+function mapStateToProps(state) {
   return {
-    count: state.count
+    todoList: state.countReducer.todoList,
+    count: state.countReducer.count,
+    count1: state.numReducer.count,
+    json: state.countReducer.json
   };
 }
 
-export default connect(mapState2Props)(ReduxTest2);
+export default connect(mapStateToProps)(ReduxTest2);
