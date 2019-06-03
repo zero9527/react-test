@@ -1,5 +1,6 @@
 import { INCREMENT, TODO_LIST, JSON_DATA } from '../types';
 
+// 这里的参数默认值，比createState 的初始 initState 优先级低
 function countReducer(state = { count: 0 }, action) {
   switch (action.type) {
     case INCREMENT:

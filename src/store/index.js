@@ -10,8 +10,9 @@ const reducers = combineReducers({
   numReducer
 });
 
+// 需要缓存的列表
+const cacheList = ['numReducer', 'countReducer'];
 let stateCache = sessionStorage.getItem('store');
-
 // 初始化的 state
 const initState = (stateCache && JSON.parse(stateCache)) || {};
 
@@ -19,14 +20,16 @@ const initState = (stateCache && JSON.parse(stateCache)) || {};
 const store = createStore(reducers, initState, applyMiddleware(ReduxThunk));
 
 // 监听每次 state 的变化
-let unsubscribe = store.subscribe(() => {
+store.subscribe(() => {
   const state = store.getState();
-  // console.log('state: ', state);
+  let stateData = {};
 
-  sessionStorage.setItem('store', JSON.stringify(state));
+  Object.keys(state).forEach(item => {
+    if (cacheList.includes(item)) stateData[item] = state[item];
+  });
+
+  sessionStorage.setItem('store', JSON.stringify(stateData));
 });
-// 解除监听
-// unsubscribe();
 
 // 改变内部 state 惟一方法是 dispatch 一个 action
 // 可以直接在这里调用，修改 state
