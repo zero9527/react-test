@@ -14,10 +14,10 @@ const reducers = combineReducers({
 const cacheList = ['numReducer', 'countReducer'];
 let stateCache = sessionStorage.getItem('store');
 // 初始化的 state
-const initState = (stateCache && JSON.parse(stateCache)) || {};
+const initialState = (stateCache && JSON.parse(stateCache)) || {};
 
 // stroe: { subscribe, dispatch, getState, replaceReducer }
-const store = createStore(reducers, initState, applyMiddleware(ReduxThunk));
+const store = createStore(reducers, initialState, applyMiddleware(ReduxThunk));
 
 // 监听每次 state 的变化
 store.subscribe(() => {
