@@ -1,8 +1,6 @@
 let models = {
   state: {
     count: 0,
-    data: [],
-    todoList: '',
     JSON_DATA: ''
   },
   reducers: {
@@ -12,26 +10,23 @@ let models = {
         count: state.count + 1
       };
     },
-    SetData(state, val) {
+    setJSON_DATA(state, data) {
       return {
         ...state,
-        data: val
+        JSON_DATA: data
       };
     }
   },
   effects: {
-    async getData() {
-      let d = [1];
-      await setTimeout(() => d.push(2));
-      fetch('./menifest.json')
+    async getJsonData() {
+      await fetch('./manifest.json')
         .then(res => res.json())
         .then(json => {
-          return dispatch({ type: type, data: json });
+          this.setJSON_DATA(json);
         })
         .catch(err => {
-          return dispatch({ type: type, data: err });
+          this.setJSON_DATA(err);
         });
-      this.SetData(d);
     }
   }
 };

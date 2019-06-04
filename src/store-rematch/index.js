@@ -28,6 +28,4 @@ store.subscribe(() => {
   sessionStorage.setItem('store-rematch', JSON.stringify(stateData));
 });
 
-console.log('store: ', store);
-
 export default store;
