@@ -3,9 +3,15 @@ import { Link } from 'react-router-dom';
 // import HooksTest from '../../components/hooksTest';
 // import ReduxTest1 from '../../components/redux-test/redux-1.jsx';
 // import ReduxTest2 from '../../components/redux-test/redux-2.jsx';
-import Rematch from '@/components/rematch-test/rematch-1.jsx';
+// import Rematch from '@/components/rematch-test/rematch-1.jsx';
+import Reducer1 from '@/components/useReducer-test/useReducer1.jsx';
+import { subscribe } from '@/common/js/cacheHandler.js';
 import logo from '../../logo.svg';
 import styles from './home.less';
+
+subscribe(() => {
+  console.log('11');
+});
 
 class Home extends Component {
   constructor(props) {
@@ -38,7 +44,8 @@ class Home extends Component {
           {/* <HooksTest /> */}
           {/* <ReduxTest1 /> */}
           {/* <ReduxTest2 from="home" /> */}
-          <Rematch />
+          {/* <Rematch /> */}
+          <Reducer1 />
         </header>
       </div>
     );
