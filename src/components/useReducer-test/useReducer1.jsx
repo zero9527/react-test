@@ -1,4 +1,10 @@
-import React, { useReducer, useContext } from 'react';
+import React, {
+  useReducer,
+  useContext,
+  useCallback,
+  useRef,
+  useMemo
+} from 'react';
 
 export function reducer(state, action) {
   switch (action.type) {
@@ -38,11 +44,43 @@ export function Child1(props) {
 export default function UseReducer1({ initialState = { count: 1 } }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  // useCallback(() => {
+  //   console.log('count change', state.count);
+  // }, [state.count])();
+
+  const inputEl = useRef(null);
+
+  function Clk() {
+    dispatch({ type: 'increment' });
+    // console.log('inputEl: ', inputEl);
+    inputEl.current.focus();
+  }
+
+  useMemo(() => {
+    aa();
+  }, [state.count]);
+
+  function aa() {
+    console.log('count change--aa');
+  }
+
+  // function useNumCalc(num) {
+  //   let [count, setCount] = useState(num);
+
+  //   return [count, () => setCount(count + 1), () => setCount(count - 1)];
+  // }
+
+  // const [num, numPlus, numMinus] = useNumCalc(1);
+
   return (
     <UseReducer1Dispatch.Provider value={dispatch}>
+      {/* num: {num}
+      <button onClick={numPlus}>numPlus</button>
+      <button onClick={numMinus}>numMinus</button> */}
       {state.count}
-      <button onClick={() => dispatch({ type: 'increment' })}>count+</button>
+      <button onClick={Clk}>count+</button>
       <button onClick={() => dispatch({ type: 'decrement' })}>count-</button>
+      <input ref={inputEl} type="text" />
       <hr />
       <Child1 dispatch={UseReducer1Dispatch} />
     </UseReducer1Dispatch.Provider>
