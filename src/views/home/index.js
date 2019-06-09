@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // import ReduxTest1 from '../../components/redux-test/redux-1.jsx';
 // import ReduxTest2 from '../../components/redux-test/redux-2.jsx';
 // import Rematch from '@/components/rematch-test/rematch-1.jsx';
-import Reducer1 from '@/components/useReducer-test/useReducer1.jsx';
+// import Reducer1 from '@/components/useReducer-test/useReducer1.jsx';
 import { subscribe } from '@/common/js/cacheHandler.js';
 import logo from '../../logo.svg';
 import styles from './home.less';
@@ -45,7 +45,7 @@ class Home extends Component {
           {/* <ReduxTest1 /> */}
           {/* <ReduxTest2 from="home" /> */}
           {/* <Rematch /> */}
-          <Reducer1 />
+          {/* <Reducer1 /> */}
         </header>
       </div>
     );
